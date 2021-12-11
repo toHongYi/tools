@@ -6,7 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="lambda" />
+        <module name="transform" />
         <module name="designModel" />
+        <module name="encryCode" />
+        <module name="remoteAPI" />
         <module name="advancedJDK" />
       </profile>
     </annotationProcessing>
