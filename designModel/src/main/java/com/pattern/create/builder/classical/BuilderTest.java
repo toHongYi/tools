@@ -1,4 +1,4 @@
-package com.pattern.create.builder.demo01;
+package com.pattern.create.builder.classical;
 
 /**
  * @ClassName Computer
