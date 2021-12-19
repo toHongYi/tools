@@ -64,22 +64,7 @@ public class Demo1 {
         String url = fileName + head + encode1;
         System.out.println(url);
 
-        /**
-         *      {"nextId":2,"items":[["1","PRO_SJQX_JGDM.prc"]]}
-         *      {
-         *   "nextId": 2,
-         *   "items": [
-         *     [
-         *       "1",
-         *       "PRO_SJQX_JGDM.prc"
-         *     ]
-         *   ]
-         * }
-         *      264
-         */
 
-        /**
-         *
-         */
+
     }
 }
