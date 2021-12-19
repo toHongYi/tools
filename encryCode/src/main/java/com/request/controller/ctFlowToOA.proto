@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package ip.base.ctFlowToOA;
+
+service CTFlowToOAService {
+
+  //新建OA工作流
+  rpc createOaWorkFlow (CreateOaWorkFlowRequest) returns (CreateOaWorkFlowResponse) {}
+
+  //删除OA工作流
+  rpc deleteOaWorkFlow (DeleteOaWorkFlowRequest) returns (DeleteOaWorkFlowResponse) {}
+
+}
+
+/****************新建OA流程参数定义开始****************************/
+
+message CreateOaWorkFlowRequest {
+  string prodRemark = 1;
+  int32 InstID =2;
+  int32 initiator =3;
+  string createDate =4;
+  string createTime =5;
+  string processTitle =6;
+  int32 approvalAction =7;
+  string approvaUserId =8;
+  string workflowName =9;
+
+}
+
+message CreateOaWorkFlowResponse {
+  // 调用是否成功
+  bool success = 1000; // [(apiModelPropertyNotes)="调用是否成功"];
+  // 业务状态码
+  int32 messageCode = 1001; // [(apiModelPropertyNotes)="业务状态码"];
+  // 调用信息
+  string message = 1002; // [(apiModelPropertyNotes)="调用信息"];
+
+}
+
+/****************新建OA流程参数定义结束****************************/
+
+/****************删除OA流程参数定义结束****************************/
+
+message DeleteOaWorkFlowRequest {
+  //本系统工作流ID
+  string flowId = 1;
+
+}
+
+message DeleteOaWorkFlowResponse {
+  // 调用是否成功
+  bool success = 1000; // [(apiModelPropertyNotes)="调用是否成功"];
+  // 业务状态码
+  int32 messageCode = 1001; // [(apiModelPropertyNotes)="业务状态码"];
+  // 调用信息
+  string message = 1002; // [(apiModelPropertyNotes)="调用信息"];
+}
+
+/****************删除OA流程参数定义结束****************************/

@@ -1,4 +1,4 @@
-package com.pattern.create.builder.variefy;
+package com.pattern.create.builder.variety;
 
 /**
  * @ClassName demo1

@@ -52,6 +52,7 @@ public class JsonUtil {
         System.out.println("6:jsonToString=>"+jsonString3);//jsonToString=>{"name":"summer","age":"24"}
 
         //7、对象转JSON
+        String object = JSONObject.toJSONString(new Object());
 
         String s = UUID.randomUUID().toString().replace("-","");
 

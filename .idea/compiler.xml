@@ -8,9 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lambda" />
         <module name="transform" />
+        <module name="designModel" />
         <module name="encryCode" />
         <module name="remoteAPI" />
-        <module name="designModel" />
         <module name="advancedJDK" />
       </profile>
     </annotationProcessing>
