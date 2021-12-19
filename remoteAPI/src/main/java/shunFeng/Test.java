@@ -24,8 +24,10 @@ public class Test {
 
         int phone = 3361;
         QueryWayRoutesByShunFeng shunFeng = new QueryWayRoutesByShunFeng();
+
         ShunFengRequestRoutesModel requestModel = shunFeng.createRequestModel(arrayList, phone);
         System.out.println(requestModel);
+
         ShunFengJsonExpressServiceImpl shunFengService = new ShunFengJsonExpressServiceImpl();
         shunFengService.searchRoute(requestModel);
 

@@ -15,5 +15,9 @@
         <module name="advancedJDK" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="GitBranch--Test" target="8" />
+      <module name="GitBranchTest" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
