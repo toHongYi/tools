@@ -17,7 +17,8 @@ public class testAction01 {
                 //因为每次都需要传入,和被方法调用同一个对象;
                         // 所以直接用 " :: " 对参数进行省略;
         strList.forEach(new testActionUtils()::addString);
-
+                        // "::"号前是主类;  后面是要调用的方法;
+        strList.forEach((t)->new testActionUtils().addString(t));
     }
     /**
      * FunctionalInterface允许传入：

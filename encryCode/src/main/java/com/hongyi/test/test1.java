@@ -33,9 +33,6 @@ public class test1 {
         String fileColumn1 = "CPJZDCBG";
         String fileName1 = "产品尽职调查报告";
 
-        String fileColumn2 = "CPJZFXBG";
-        String fileName2 = "产品价值分析报告";
-
 //        Model01 model01 = new Model01();
 //        //字段中文件名称;
 //        String fileName;
@@ -44,20 +41,14 @@ public class test1 {
 
         String s = FileTestUtil.fileTransation(fileColumn,fileName, id);
         String s1 = FileTestUtil.fileTransation(fileColumn1, fileName1, id);
-        String s2 = FileTestUtil.fileTransation(fileColumn2, fileName2, id);
 
         System.out.println(" ===================================================================== " );
-        System.out.println("s = " + s);
-        System.out.println("s1 = " + s1);
-        System.out.println("s2 = " + s2);
+//        System.out.println("s = " + s);
+//        System.out.println("s1 = " + s1);
+//        System.out.println("QT测试字段 -- QT1 = " + s2);
+//
+//        System.out.println("fileTransation -- QT2 = " + fileTransation);
+//        System.out.println("==============================================================================");
 
-
-        System.out.println("==============================================================================");
-
-
-
-
-
-
-
-}}
+    }
+}

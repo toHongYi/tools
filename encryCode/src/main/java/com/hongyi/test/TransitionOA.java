@@ -3,6 +3,7 @@ package com.hongyi.test;
 import com.alibaba.fastjson.JSONObject;
 import com.hongyi.utils.impl.FileTestUtil;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -11,21 +12,33 @@ import java.util.Map;
  * @version : V1.0
  * @date : 2021/12/19 20:52
  * @Author : LLH
- * @Desc :
+ * @Desc : 将数据库中特殊形式转换成文件输出形式;
+ *
+ *
  */
 public class TransitionOA {
     public static void main(String[] args) {
 
 
-        String write = " {\"nextId\":2,\"items\":[[\"0\",\"新人手册.docx\"],[\"1\",\"财券人力字[2021]28号 关于进一步做好当前新冠肺炎疫情防控工作的通知.pdf\"]]}";
+        String write = "{\"nextId\":8,\"items\":[[\"1\",\"第三组.txt\"],[\"2\",\"oa.md\"],[\"4\",\"第二个.txt\"],[\"5\",\"第二个.txt\"],[\"6\",\"表结构.xlsx\"],[\"7\",\"流程入参.json\"]]}";
         System.out.println("write = " + write);
 
         Map stringToMap =  JSONObject.parseObject(write);
         System.out.println("stringToMap = " + stringToMap);
 
 
+        /**
+         * 流程入参.json|
+         * http://172.15.7.109:8001/product/commonbase/v1/downloadFileByCt?sign=eyJmaWxlVGFibGUiOiJsY0NQUFNMQ19DUFhYIiwiZmlsZUNvbHVtbiI6IlFUIiwiaWQiOjI2MiwiZW50cnlObyI6MH0=
+         *                                                                                                                                             ! !
+         * http://172.15.7.109:8001/product/commonbase/v1/downloadFileByCt?sign=eyJmaWxlVGFibGUiOiJsY0NQUFNMQ19DUFhYIiwiZmlsZUNvbHVtbiI6IlFUIiwiaWQiOjI4MCwiZW50cnlObyI6MH0=
+         */
+
         List items = (List) stringToMap.get("items");
+
+        List hot = new ArrayList<String>();
         for (Object item : items) {
+            System.out.println("++++++++++++++++++++++++++++++++++++++");
             System.out.println("=================================【测试输出开始】==============================================");
 
             String element = item.toString();
@@ -39,13 +52,16 @@ public class TransitionOA {
             //将首尾干净数据再处理;
             List split = Arrays.asList(s4.split(","));
             System.out.println("split = " + split);
-            for (Object o : split) {
-                System.out.println("o = " + o);
+            for (Object concent : split) {
+                System.out.println("concent= " + concent);
             }
 
             String title = (String) split.get(0);
             String content = (String) split.get(1);
 
+            //concent= "1"
+            //concent= "第三组.txt"
+            //去除双引号;
             title = trimFirstAndLastChar(title, "\"");
             content = trimFirstAndLastChar(content, "\"");
 
@@ -53,15 +69,20 @@ public class TransitionOA {
             int QTnoNo = Integer.valueOf(title);
             String QTcontent = content;
 
+    //!!!
+    int initID = 312;
+
             System.out.println("QTnoNo = " + QTnoNo);
             System.out.println("QTcontent = " + QTcontent);
 
 
-            String s2 = FileTestUtil.fileTransation(QTColumn1, QTcontent, 270,QTnoNo);
+            String s2 = FileTestUtil.fileTransation(QTcontent, QTColumn1, initID,QTnoNo);
 
+            hot.add(s2);
             System.out.println("=================================【测试输出完成】==============================================");
         }
         System.out.println("测试完成");
+        System.out.println(hot);
 
     }
 

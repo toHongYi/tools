@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class demo4 {
 
-
     static class Person {
         private final String name;
         private final String surname;
