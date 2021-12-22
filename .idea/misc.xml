@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/remoteAPI/pom.xml" />
         <option value="$PROJECT_DIR$/transform/pom.xml" />
         <option value="$PROJECT_DIR$/GitBranchTest/pom.xml" />
+        <option value="$PROJECT_DIR$/Stream/pom.xml" />
       </list>
     </option>
   </component>
