@@ -1,17 +1,15 @@
-package com.lyl.shunfeng.service;
+package com.shunfeng.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lyl.shunfeng.bean.CreateExpressOrderReq;
-import com.lyl.shunfeng.bean.json.CancelOrderReq;
-import com.lyl.shunfeng.bean.json.CreateExpressOrderJsonDTO;
-import com.lyl.shunfeng.bean.json.SearchRouteReq;
-import com.lyl.shunfeng.enums.ShunFengOperation;
-import com.lyl.shunfeng.enums.ShunFengServieCodeEnum;
-import com.lyl.shunfeng.util.HttpClientUtil;
-import com.lyl.shunfeng.util.VerifyCodeUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.shunfeng.bean.CreateExpressOrderReq;
+import com.shunfeng.bean.json.CancelOrderReq;
+import com.shunfeng.bean.json.CreateExpressOrderJsonDTO;
+import com.shunfeng.bean.json.SearchRouteReq;
+import com.shunfeng.enums.ShunFengOperation;
+import com.shunfeng.enums.ShunFengServieCodeEnum;
+import com.shunfeng.util.HttpClientUtil;
+import com.shunfeng.util.VerifyCodeUtil;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -31,7 +29,6 @@ public class ShunFengJsonExpressService {
      * jackson的json转化类
      */
 
-
     // 测试环境请求url
     private static final String CALL_URL_BOX = "https://sfapi-sbox.sf-express.com/std/service";
     // 正式环境请求url
@@ -44,7 +41,8 @@ public class ShunFengJsonExpressService {
     private static final String CUST_ID = "7551234567";
 
     @Resource
-    private ObjectMapper objectMapper;
+    //private ObjectMapper objectMapper;
+
 
     /**
      * 顺丰接口操作集合
@@ -54,7 +52,17 @@ public class ShunFengJsonExpressService {
      * @return
      */
     public String shunFengOperationProcessor(Object requestContent, ShunFengOperation shunFengOperation) {
-        // 请求数据
+
+        /**
+         * 接收对象类型为Object类型;
+         *      在我们实际运用中,如果是自己已知晓的事物。便可以直接根据需要将其转义成我们所需的数据类型;
+         *      Object101 objetc = (Object101) object;
+         *
+         */
+
+
+        // 这种写法就是将原本在数据库中对应的服务名称和服务ID,将他们在代码中直接撰写出来进行操作;
+        //  Enum枚举,相当于做映射使用。
         String requestJson = "";
         // 请求服务的类别
         ShunFengServieCodeEnum servieCode = null;
@@ -101,8 +109,8 @@ public class ShunFengJsonExpressService {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        logger.info("请求报文：{}", params.get("msgData"));
-        logger.info("响应报文：{}", result);
+//        logger.info("请求报文：{}", params.get("msgData"));
+//        logger.info("响应报文：{}", result);
         return result;
     }
 
@@ -151,8 +159,10 @@ public class ShunFengJsonExpressService {
         List<CreateExpressOrderJsonDTO.ContactInfoListBean> contactInfoListBeanList = Arrays.asList(senderInfo, receiverInfo);
         req.setContactInfoList(contactInfoListBeanList);
 
-        return objectToJson(req);
+//        return objectToJson(req);
+        return null;
     }
+
 
     /**
      * 根据快递号查询快递记录
@@ -167,7 +177,8 @@ public class ShunFengJsonExpressService {
         // 根据快递号查询
         searchRouteReq.setTrackingType(1);
         searchRouteReq.setTrackingNumber(Collections.singletonList(mailNo));
-        return objectToJson(searchRouteReq);
+//        return objectToJson(searchRouteReq);
+        return null;
     }
 
     /**
@@ -182,7 +193,8 @@ public class ShunFengJsonExpressService {
         req.setConfirmType(3);
         req.setLanguage("zh-CN");
         req.setOrderId(orderNo);
-        return objectToJson(req);
+//        return objectToJson(req);
+        return null;
     }
 
     /**
@@ -193,12 +205,12 @@ public class ShunFengJsonExpressService {
      * @author Li Yulong
      * @date 2020-08-12 21:38
      */
-    private String objectToJson(Object obj) {
-        try {
-            return objectMapper.writeValueAsString(obj);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
+//    private String objectToJson(Object obj) {
+//        try {
+//            return objectMapper.writeValueAsString(obj);
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//            return "";
+//        }
+//    }
 }

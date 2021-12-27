@@ -1,4 +1,4 @@
-package com.lyl.shunfeng.util;
+package com.shunfeng.util;
 
 import com.lyl.shunfeng.bean.xml.CreateExpressOrderDTO;
 import com.lyl.shunfeng.bean.xml.RlsInfoDto;

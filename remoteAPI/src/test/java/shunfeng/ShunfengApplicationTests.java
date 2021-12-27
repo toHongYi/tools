@@ -1,10 +1,11 @@
-package com.lyl.shunfeng;
+package shunfeng;
 
-import com.lyl.shunfeng.bean.CreateExpressOrderReq;
-import com.lyl.shunfeng.bean.xml.ShunFengResponse;
-import com.lyl.shunfeng.enums.ShunFengOperation;
-import com.lyl.shunfeng.service.ShunFengJsonExpressService;
-import com.lyl.shunfeng.service.ShunFengXmlExpressService;
+
+import com.shunfeng.bean.CreateExpressOrderReq;
+import com.shunfeng.bean.xml.ShunFengResponse;
+import com.shunfeng.enums.ShunFengOperation;
+import com.shunfeng.service.ShunFengJsonExpressService;
+import com.shunfeng.service.ShunFengXmlExpressService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -42,22 +43,22 @@ class ShunfengApplicationTests {
         createExpressOrderReq.setDContact("滕大宝");
         createExpressOrderReq.setDTel("18938905541");
         createExpressOrderReq.setDAddress("宝芝林大厦701室");
-        ShunFengResponse shunFengResponse = shunFengXmlExpressService.shunFengOperationProcessor(createExpressOrderReq, ShunFengOperation.CRETE_ORDER);
+        //ShunFengResponse shunFengResponse = shunFengXmlExpressService.shunFengOperationProcessor(createExpressOrderReq, ShunFengOperation.CRETE_ORDER);
     }
 
     @Test
     public void testSearchOrderXml() {
         // 下单返回的快递号
         String mailNo = "444021040295";
-        ShunFengResponse shunFengResponse = shunFengXmlExpressService.shunFengOperationProcessor(mailNo, ShunFengOperation.ROUTE_SEARCH);
-        System.out.println(shunFengResponse);
+        //ShunFengResponse shunFengResponse = shunFengXmlExpressService.shunFengOperationProcessor(mailNo, ShunFengOperation.ROUTE_SEARCH);
+        //System.out.println(shunFengResponse);
     }
 
     @Test
     public void testCancelOrderXml() {
         // 下单时传入的orderId
         String orderNo = "20200121181653954019";
-        ShunFengResponse shunFengResponse = shunFengXmlExpressService.shunFengOperationProcessor(orderNo, ShunFengOperation.CANCEL_ORDER);
+        //ShunFengResponse shunFengResponse = shunFengXmlExpressService.shunFengOperationProcessor(orderNo, ShunFengOperation.CANCEL_ORDER);
     }
 
     @Test
@@ -82,16 +83,16 @@ class ShunfengApplicationTests {
         createExpressOrderReq.setDContact("滕大宝");
         createExpressOrderReq.setDTel("18938905541");
         createExpressOrderReq.setDAddress("宝芝林大厦701室");
-        shunFengJsonExpressService.shunFengOperationProcessor(createExpressOrderReq, ShunFengOperation.CRETE_ORDER);
+        //shunFengJsonExpressService.shunFengOperationProcessor(createExpressOrderReq, ShunFengOperation.CRETE_ORDER);
     }
 
     @Test
     public void testSearchOrderJson() {
-        shunFengJsonExpressService.shunFengOperationProcessor("SF7444407995771", ShunFengOperation.ROUTE_SEARCH);
+        //shunFengJsonExpressService.shunFengOperationProcessor("SF7444407995771", ShunFengOperation.ROUTE_SEARCH);
     }
 
     @Test
     public void testCancelOrderJson() {
-        shunFengJsonExpressService.shunFengOperationProcessor("20200121181653954088", ShunFengOperation.CANCEL_ORDER);
+        //String s = shunFengJsonExpressService.shunFengOperationProcessor("20200121181653954088", ShunFengOperation.CANCEL_ORDER);
     }
 }

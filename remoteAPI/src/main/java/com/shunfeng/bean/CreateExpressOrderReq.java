@@ -1,4 +1,4 @@
-package com.lyl.shunfeng.bean;
+package com.shunfeng.bean;
 
 import lombok.Data;
 

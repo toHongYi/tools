@@ -1,4 +1,4 @@
-package com.lyl.shunfeng.enums;
+package com.shunfeng.enums;
 
 /**
  * 顺丰操作类型

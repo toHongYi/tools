@@ -1,4 +1,4 @@
-package com.lyl.shunfeng.util;
+package com.shunfeng.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

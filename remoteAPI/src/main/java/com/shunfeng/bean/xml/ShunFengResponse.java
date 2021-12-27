@@ -1,4 +1,4 @@
-package com.lyl.shunfeng.bean.xml;
+package com.shunfeng.bean.xml;
 
 import com.lyl.shunfeng.bean.xml.CreateExpressOrderDTO;
 import com.lyl.shunfeng.enums.ExpressCompanyType;

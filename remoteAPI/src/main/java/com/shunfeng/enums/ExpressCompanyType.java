@@ -1,4 +1,4 @@
-package com.lyl.shunfeng.enums;
+package com.shunfeng.enums;
 
 /**
  * 快递公司

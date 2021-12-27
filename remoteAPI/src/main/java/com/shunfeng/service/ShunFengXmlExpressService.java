@@ -1,15 +1,17 @@
-package com.lyl.shunfeng.service;
+package com.shunfeng.service;
 
-import com.lyl.shunfeng.bean.CreateExpressOrderReq;
-import com.lyl.shunfeng.bean.xml.ShunFengResponse;
-import com.lyl.shunfeng.enums.ShunFengOperation;
-import com.lyl.shunfeng.util.HttpClientUtil;
-import com.lyl.shunfeng.util.VerifyCodeUtil;
-import com.lyl.shunfeng.util.XmlHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.jarTest.shunfeng.util.HttpClientUtil;
+import com.jarTest.shunfeng.util.VerifyCodeUtil;
+
+import com.shunfeng.bean.CreateExpressOrderReq;
+import com.shunfeng.bean.xml.ShunFengResponse;
+import com.shunfeng.enums.ShunFengOperation;
+import com.shunfeng.util.XmlHelper;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+
 
 @Service
 public class ShunFengXmlExpressService {
@@ -67,9 +69,10 @@ public class ShunFengXmlExpressService {
         } catch (Exception var6) {
             logger.warn(" " + var6);
         }
-        logger.info("请求报文：{}", requestXml);
-        logger.info("响应报文：{}", respXml);
-        return XmlHelper.xmlToBeanForSF(respXml);
+//        logger.info("请求报文：{}", requestXml);
+//        logger.info("响应报文：{}", respXml);
+//        return XmlHelper.xmlToBeanForSF(respXml);
+        return null;
     }
 
     /**

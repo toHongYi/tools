@@ -1,7 +1,9 @@
 package com.hongYi.pdf;
 
+import java.io.File;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.util.PDFTextStripper;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,15 +12,15 @@ import java.io.IOException;
  * @version : V1.0
  * @date : 2021/12/23 16:40
  * @Author : LLH
- * @Desc :
+ * @Desc : 已实现读取PDF信息;
  */
-public class demo02 {
+public class StreamDemo_18 {
     /**
-     * @param 读取PDF文件
+     * @param
      */
     public static void main(String[] args) {
         StreamDemo_18 pdf = new StreamDemo_18();
-        String pdfName = "D:\\temp\\myPDF.pdf";
+        String pdfName = "C:\\Users\\fbodc\\Desktop\\测试.pdf";
         pdf.readFileOfPDF(pdfName);
 
     }

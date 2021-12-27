@@ -1,4 +1,4 @@
-package com.lyl.shunfeng.util;
+package com.shunfeng.util;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
