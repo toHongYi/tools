@@ -8,6 +8,7 @@ package com.caiton;
  */
 public interface UserReader {
 
-
+    //抽象出来的方法;
+    String getUser();
 
 }

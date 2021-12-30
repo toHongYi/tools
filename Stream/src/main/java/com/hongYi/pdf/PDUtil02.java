@@ -1,5 +1,9 @@
 //package com.hongYi.pdf;
 //
+//import org.apache.pdfbox.exceptions.COSVisitorException;
+//import org.apache.pdfbox.pdmodel.PDDocument;
+//import org.apache.pdfbox.pdmodel.PDPage;
+//
 //import java.io.IOException;
 //
 ///**
@@ -24,7 +28,7 @@
 //     * @throws IOException
 //     * @throws COSVisitorException
 //     */
-//    public static void createBlank(String s11)throws IOException, COSVisitorException{
+//    public static void createBlank(String s11)throws IOException, COSVisitorException {
 //
 //        //首先创建pdf文档类
 //        PDDocument document = null;

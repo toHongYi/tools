@@ -41,6 +41,14 @@ public class ObjectToJson {
          */
 
 
+        /**
+         * map转json:
+         *      String toOA = JSON.toJSONString(map1);
+         * JSON字符串转JSON对象:
+         *      JSONObject.parseObject(toOA)
+         *
+         */
+
         System.out.println("map1 = " + map.toString());     //两者一样;
         System.out.println("map2 = " + map);
 

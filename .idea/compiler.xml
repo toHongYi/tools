@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lambda" />
         <module name="transform" />
+        <module name="SpringBootTest01" />
         <module name="encryCode" />
         <module name="remoteAPI" />
         <module name="bin" />
@@ -22,5 +23,10 @@
       <module name="GitBranch--Test" target="8" />
       <module name="GitBranchTest" target="8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringBootTest01" options="-parameters" />
+    </option>
   </component>
 </project>

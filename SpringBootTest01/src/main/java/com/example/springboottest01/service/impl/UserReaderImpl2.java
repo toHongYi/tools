@@ -1,6 +1,7 @@
 package com.example.springboottest01.service.impl;
 
 import com.example.springboottest01.service.UserReader;
+import org.springframework.stereotype.Component;
 
 /**
  * @version : V1.0
@@ -8,6 +9,7 @@ import com.example.springboottest01.service.UserReader;
  * @Author : LLH
  * @Desc :
  */
+@Component
 public class UserReaderImpl2 implements UserReader {
     @Override
     public String getUser() {

@@ -21,6 +21,7 @@ public class nullString {
         }
         //先判断是不是对象，如果是，再判断是不是空字符串
         //if(str1.equals("")||str1==null){ }
+        System.out.println("\033[31m"+ "str2 = " + str2);
 
     }
 }
