@@ -13,3 +13,6 @@
 4.  接口隔离原则（Interface Segregation Principle）
 5.  迪米特法则（Law Of Demeter）
 6.  开闭原则（Open Close Principle）
+
+
+## 策略模式
