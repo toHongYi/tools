@@ -24,6 +24,7 @@ public class DemoController01 {
     @GetMapping("/getStudentName")
     public String getStudentBuyId(Integer studentId,String source){
 
+        //studentService  这里是拼接完成的请求字串;
         String key = ServiceMapConstants.STUDENT_SERVICE_PREFIX + source;
 
         //一个根据名称的调用;

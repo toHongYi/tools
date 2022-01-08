@@ -8,11 +8,26 @@ package com.pattern.create.builder.classical;
  */
 public class BuilderTest {
     public static void main(String[] args) {
+
+        //通过director内部
         Director director = new Director();
         director.setBuilder(new LowConfigBuilder());
+        //通过director内部封装好的创建set方法， 将set方法进行简化;(外部包一层;)
         director.createComputer();
         Computer computer = director.getComputer();
         System.out.println("computer电脑配置 = " + computer);
+
+        LowConfigBuilder lowCon = new LowConfigBuilder();
+        Computer computer1 = lowCon.getComputer();
+        System.out.println("computer测试低配 = " + computer1);//null
+            lowCon.setCPU();
+            lowCon.setHardDisk();
+            lowCon.setKeyboard();
+            lowCon.setMemery();
+            lowCon.setMouse();
+            System.out.println("computer加上设置方法测试低配 = " + computer1);//null
+
+
     }
 }
 
