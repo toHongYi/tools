@@ -1,0 +1,67 @@
+/**
+ * @PACKAGE_NAME: ip.product.base
+ * @PROJECT_NAME: 2c-template
+ * @author  cqw
+ * @date  2021-07-09 14:03
+ * @description:
+ * @version 1.0
+ */
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package ip.product.base.myFavorite;
+
+import "base.proto";
+
+service MyFavoriteService {
+
+  option (requestMappingValue) = "/myFavorite";
+
+  option (apiTags) = "机构业务拓展-我的收藏";
+
+
+  rpc UpdateUserFavoriteState (UpdateUserFavoriteStateRequest) returns (UpdateUserFavoriteStateResponse) {
+    option (mappingValue) = "/v1/updateUserFavoriteState";
+    option (apiOperationValue) = "更新产品收藏状态";
+  };
+
+
+
+}
+
+/************************************** PrivateProdScreen参数定义开始 **************************************/
+message UpdateUserFavoriteStateRequest{
+
+  option (apiModelDescription) = "更新产品收藏状态入参";
+
+  string userID = 1002 [(apiModelPropertyNotes)="用户标识"];
+
+  string prodCode = 1003 [(apiModelPropertyNotes)="产品代码"];
+
+  int32 sellOrOpen = 1004 [(apiModelPropertyNotes)="产品公开还是代销, ’1‘是公开, ’2’是代销 "];
+
+  int32 prodState = 1005 [(apiModelPropertyNotes)="产品的收藏状态, '1'是已收藏,'0'是未收藏"];
+
+  int32 privayePublic = 1006 [(apiModelPropertyNotes)="私募还是公募, '1'是公募,'2'是私募"];
+
+}
+
+message UpdateUserFavoriteStateResponse{
+
+  bool success = 1000 [(apiModelPropertyNotes)="调用是否成功"];
+
+  int32 messageCode = 1001 [(apiModelPropertyNotes)="业务状态码"];
+
+  string message = 1002 [(apiModelPropertyNotes)="调用信息"];
+
+  string data = 1003 [(apiModelPropertyNotes)="返回结果"];
+}
+
+
+
+
+/**************************************UpdateUserFavoriteStateRequestResponse参数定义结束 **************************************/
+
+
