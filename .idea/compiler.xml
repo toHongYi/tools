@@ -10,6 +10,7 @@
         <module name="transform" />
         <module name="encryCode" />
         <module name="remoteAPI" />
+        <module name="bin" />
         <module name="Stream" />
         <module name="designModel" />
         <module name="GitBranchTest" />
