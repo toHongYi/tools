@@ -1,5 +1,9 @@
 package string;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 /**
@@ -11,11 +15,24 @@ import java.util.Date;
 public class Format {
     public static void main(String[] args) {
 
+        OutputStream outputStream = new OutputStream() {
+            @Override
+            public void write(int b) throws IOException {
+                System.out.println(b);
+            }
+        };
+
+        try {
+            PrintStream printStream = new PrintStream(outputStream, true,"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
 
         String str=null;
         str=String.format("Hi,%s", "小超");
         System.out.println(str);
+        System.out.print(str);
         str=String.format("Hi,%s %s %s", "小超","是个","大帅哥");
         System.out.println(str);
         System.out.printf("字母c的大写是：%c %n", 'C');
