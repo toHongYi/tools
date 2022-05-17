@@ -6,6 +6,22 @@ public class DemoEntity {
     public String name;
     public String address;
     public Date birthday;
+    public Integer day;
+
+    public DemoEntity() {
+    }
+
+    public DemoEntity(String name, String address, Integer day) {
+        this.name = name;
+        this.address = address;
+        this.day = day;
+    }
+
+    public DemoEntity(String name, String address, Date birthday) {
+        this.name = name;
+        this.address = address;
+        this.birthday = birthday;
+    }
 
     public String getName() {
         return name;

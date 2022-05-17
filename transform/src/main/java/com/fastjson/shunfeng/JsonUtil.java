@@ -1,11 +1,11 @@
 package com.fastjson.shunfeng;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.fastjson.entity.DemoEntity;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @version : V1.0
@@ -56,5 +56,54 @@ public class JsonUtil {
 
         String s = UUID.randomUUID().toString().replace("-","");
 
+
+        List<DemoEntity> entity = new ArrayList<>();
+        entity.add(new DemoEntity("测试一","地址一",2020));
+        entity.add(new DemoEntity("测试二","地址二",2021));
+        entity.add(new DemoEntity("测试三","地址三",2022));
+
+        System.out.println("entity = " + entity.toString());
+        String s1 = listToJson(entity);
+        System.out.println("s1 = " + s1);
     }
+
+
+    /**
+     * json 转 List<T>
+     */
+    public static <T> List<T> jsonToList(String jsonString, Class<T> clazz) {
+        @SuppressWarnings("unchecked")
+        List<T> ts = (List<T>) JSONArray.parseArray(jsonString, clazz);
+        return ts;
+    }
+
+
+    /**
+     * List<T> 转 json 保存到数据库
+     */
+    public static <T> String listToJson(List<T> ts) {
+        String jsons = JSON.toJSONString(ts);
+        return jsons;
+    }
+
+    /**
+     * JSON 转 POJO
+     */
+    public static <T> T getObject(String pojo, Class<T> tclass) {
+        try {
+            return JSONObject.parseObject(pojo, tclass);
+        } catch (Exception e) {
+            System.out.println("e = " + e);
+        }
+        return null;
+    }
+
+    /**
+     * POJO 转 JSON
+     */
+    public static <T> String getJson(T tResponse){
+        String pojo = JSONObject.toJSONString(tResponse);
+        return pojo;
+    }
+
 }
