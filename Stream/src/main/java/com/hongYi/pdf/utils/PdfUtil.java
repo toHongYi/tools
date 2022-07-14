@@ -15,7 +15,6 @@ import java.util.Locale;
  * @author message丶小和尚
  * @create 2020/01/10
  */
-@Slf4j
 public class PdfUtil {
 
     private final static String TEMPLATE_BASE_PATH = "/app/static/template/";//存放文件模板的地址
