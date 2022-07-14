@@ -2,6 +2,13 @@ package com.hongyi.bin;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * @version : V1.0
  * @date : 2022/1/10 9:28
@@ -11,23 +18,34 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 public class Demo {
     public static void main(String[] args) {
 
-        /**
-         *            for (PublicFundSearchRecordModel model : iPage.getRecords()) {
-         *                 PublicFundSearchRecord.Builder publicFundSearchRecordBuilder = PublicFundSearchRecord.newBuilder();
-         *                     //获取内部prodCode做唯一标识,与FavoriteList中数据进行对比,判断是否存在依存情况。
-         *                     //增加返回前端字段,  该字段标记为是否是用户收藏。             工厂模式,对数据进行处理的一种方案,转移到主对象中;
-         *                 BeanCopyUtils.toProtoBean(publicFundSearchRecordBuilder, model);    //??
-         *                 builder.addRecords(publicFundSearchRecordBuilder.build());          //?将数据存入builder之中; 通过builder将数据转存成符合RPC需求的数据;
-         *             }
-         */
-        String VISITOR_AUTHORIZATION_STATE = "用户未登录";
+        Map<String,String> map = new HashMap();
 
-        String visitor = "test1";
-        String visitor2 = "VISITOR_AUTHORIZATION_STATE";
+        List<String> stockCollects = new ArrayList<>();
+        stockCollects.add("深A 0837179472");
+        stockCollects.add("沪A B451347160");
+        stockCollects.add("深基 C837179472");
+
+        List<String> stockAccounts = new ArrayList<>();
+        for (String stockCollect : stockCollects) {
+            String collect = stockCollect.subSequence(3,13).toString();
+            System.out.println("collect = " + collect);
+            stockAccounts.add(collect.toString());
+        }
+
+        String collect = stockCollects.stream().map(t -> t.subSequence(3, 13).toString()).collect(Collectors.joining(",   "));
 
 
-        boolean visitor_authorization_state = visitor2.equals(VISITOR_AUTHORIZATION_STATE);
-        System.out.println("visitor_authorization_state = " + visitor_authorization_state);
+//        map.put("stockAccounts",stockCollects.stream().map(t->t.split(" ")).findAny().get()collect(Collectors.joining("、   ")));
+        System.out.println("FFFFcollect = " + collect);
+
+        String collect2 = stockAccounts.stream().collect(Collectors.joining(","));
+
+
+
+        System.out.println("collect2 = " + collect2);
+        //Collectors.joining("、   ")
+//        map.put("stockAccounts",stockCollects.stream().map(t->t.split(" ")).collect(Coll));
+
 
     }
 }
