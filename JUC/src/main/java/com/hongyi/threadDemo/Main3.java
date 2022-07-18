@@ -1,48 +1,24 @@
-package com.hongyi;
+package com.hongyi.threadDemo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author HongYi
  * @version 1.0
- * @date 2022/7/18 22:57
- * @description: TODO
+ * @date 2022/7/18 22:17
+ * @description: 未来时
  */
-public class Main4 {
+public class Main3 {
     public final static Random random = new Random();
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) {
         System.out.println(sendAllMail());
-        // CompletableFuture.runAsync(() 无返回值; 与 new Thread(()->{}).start() 类似|无返回值;
-        // CompletableFuture.supplyAsync() 有返回值;
 
-        CompletableFuture<String> voidCompletableFuture = CompletableFuture.supplyAsync(() -> {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return "";
-        });
-        // 做一些其他事
-
-        // 加入回主线程
-            // get() 获取返回值;
-        // get()方法根据线程进行阻塞;  还可以设置超时;
-//        String s = voidCompletableFuture.get();
-        try {
-            String s = voidCompletableFuture.get(1, TimeUnit.SECONDS);
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        }
-        voidCompletableFuture.join();
     }
 
     /**
@@ -51,7 +27,8 @@ public class Main4 {
      */
     public static int sendAllMail(){
         List<CompletableFuture<Boolean>> futureList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        //默认现场池会对当前设备进行判断;useCommonPool
+        for (int i = 0; i < 64; i++) {
             // 携带返回值的静态调用
             // 一行即可       CompletableFuture.supplyAsync(Main3::sendAllMail);
             futureList.add(CompletableFuture.supplyAsync(()->{
@@ -92,8 +69,8 @@ public class Main4 {
             return true;
         }
         // 模拟发送失败
-        System.out.println("发送失败");
-        return false;
+            System.out.println("发送失败");
+            return false;
 
     }
 }

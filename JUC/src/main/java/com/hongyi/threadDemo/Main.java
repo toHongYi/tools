@@ -1,4 +1,4 @@
-package com.hongyi;
+package com.hongyi.threadDemo;
 
 /**
  * @author HongYi
