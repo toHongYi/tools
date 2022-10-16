@@ -10,8 +10,10 @@
         <module name="transform" />
         <module name="encryCode" />
         <module name="remoteAPI" />
+        <module name="kafka" />
         <module name="JUC" />
         <module name="designModel" />
+        <module name="rabbitMQ" />
         <module name="advancedJDK" />
       </profile>
     </annotationProcessing>
